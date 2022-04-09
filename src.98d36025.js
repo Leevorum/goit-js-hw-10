@@ -4,7 +4,7 @@ var t=arguments[3],e="Expected a function",n=NaN,r="[object Symbol]",i=/^\s+|\s+
 },{}],"krre":[function(require,module,exports) {
 
 },{}],"SvwL":[function(require,module,exports) {
-"use strict";function e(e){return console.log(e),fetch(`https://restcountries.com/v3.1/name/${e}?sort=name&fields=name,name.official,capital,population,flags,languages`).then(e=>e.json())}Object.defineProperty(exports,"__esModule",{value:!0}),exports.default=e;
+"use strict";function e(e){return console.log(e),fetch(`https://restcountries.com/v3.1/name/${e}?sort=name&fields=name,name.official,capital,population,flags,languages`).then(e=>{if(!e.ok)throw new Error(e.status);return e.json()})}Object.defineProperty(exports,"__esModule",{value:!0}),exports.default=e;
 },{}],"cwzQ":[function(require,module,exports) {
 var define;
 var global = arguments[3];
@@ -12,4 +12,4 @@ var t,e=arguments[3];!function(e,i){"function"==typeof t&&t.amd?t([],function(){
 },{}],"Focm":[function(require,module,exports) {
 "use strict";var e=s(require("lodash.debounce"));require("./css/styles.css");var n=s(require("./fetchCountries.js")),t=s(require("notiflix"));function s(e){return e&&e.__esModule?e:{default:e}}const a=300,i=document.querySelector("#search-box"),c=document.querySelector(".country-list"),o=document.querySelector(".country-info");function r(e){m(),""!==e.target.value&&(0,n.default)(e.target.value).then(l).catch(d)}function l(e){const n=e.length;n>10?t.default.Notify.info("Too many matches found. Please enter a more specific name."):n>=2&&n<=10?c.insertAdjacentHTML("beforeend",u(e)):o.insertAdjacentHTML("beforeend",f(e))}function u(e){return e.map(e=>`<li class="list__item"><img class="ul__img" src="${e.flags.svg}" alt="${e.name.official}">\n        <h2 class="list__title">${e.name.official}</h2></li>`).join("")}function f(e){return e.map(e=>`\n      <div class="wrapper">\n        <img class="img" src="${e.flags.svg}" alt="${e.name.official}">\n        <h2 class="title">${e.name.official}</h2>\n      </div>\n      <p class="description">Capital: <span class="description__span">${e.capital}</span></p>\n      <p class="description">Population: <span class="description__span">${e.population}</span></p>\n      <p class="description">Languages: <span class="description__span">${p(e.languages)}</span></p>\n      `).join("")}function p(e){return Object.values(e).join(", ")}function d(){t.default.Notify.failure("Oops, there is no country with that name")}function m(){o.innerHTML="",c.innerHTML=""}i.addEventListener("input",(0,e.default)(r,300));
 },{"lodash.debounce":"PZFh","./css/styles.css":"krre","./fetchCountries.js":"SvwL","notiflix":"cwzQ"}]},{},["Focm"], null)
-//# sourceMappingURL=/goit-js-hw-10/src.58d3e335.js.map
+//# sourceMappingURL=/goit-js-hw-10/src.98d36025.js.map
